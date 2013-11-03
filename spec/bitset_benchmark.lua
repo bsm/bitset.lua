@@ -24,6 +24,10 @@ benchmark('offsets', 50, function(i)
   a:offsets()
 end)
 
+benchmark('count', 600, function(i)
+  a:count()
+end)
+
 benchmark('union', 300, function(i)
   a:union(b)
 end)

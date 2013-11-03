@@ -30,6 +30,14 @@ Examples
     set_a:get(11, 12, 13)
     ---> {false, true, false}
 
+    -- Read offsets
+    set_a:offsets()
+    ---> {10, 12, 14, 16, 18}
+
+    -- Count set bits
+    set_a:count()
+    ---> 5
+
     ---------------------------
     -- Common set operations
     ---------------------------

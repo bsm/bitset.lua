@@ -10,7 +10,8 @@ local floor  = math.floor
 local _M  = {
   _VERSION = "0.3.0"
 }
-local mt  = { __index = _M }
+local mt = { __index = _M }
+local BITCARDS = {0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,2,3,3,4,3,4,4,5,3,4,4,5,4,5,5,6,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,3,4,4,5,4,5,5,6,4,5,5,6,5,6,6,7,4,5,5,6,5,6,6,7,5,6,6,7,6,7,7,8}
 
 -- Creates a new bitset
 function _M.new(_)
@@ -146,6 +147,24 @@ function _M.offsets(self)
           res[#res+1] = 32*idx + pos
         end
       end
+    end
+  end
+  return res
+end
+
+-- Count set bits
+function _M.count(self)
+  local res  = 0
+  local nums = self.nums
+
+  for idx=0,#nums-1 do
+    local num = nums[idx+1]
+    if num < 0 then
+      num = 2^32 + num
+    end
+    while num > 0 do
+      res = res + BITCARDS[num%256+1]
+      num = floor(num/256)
     end
   end
   return res
