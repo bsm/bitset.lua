@@ -1,6 +1,8 @@
 Bitset.lua
 ==========
 
+[![Build Status](https://travis-ci.org/bsm/bitset.lua.png?branch=master)](https://travis-ci.org/bsm/bitset.lua)
+
 Bitsets (aka bitstrings or bitmaps) implemented in pure Lua.
 Requires LuaJIT or Lua 5.1/5.2 with [BitOp](http://bitop.luajit.org/).
 
