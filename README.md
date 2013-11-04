@@ -4,8 +4,7 @@ Bitset.lua
 Bitsets (aka bitstrings or bitmaps) implemented in pure Lua.
 Requires LuaJIT or Lua 5.1/5.2 with [BitOp](http://bitop.luajit.org/).
 
-Examples
---------
+## Examples
 
     ---------------------------
     -- Basics
@@ -53,8 +52,7 @@ Examples
     set_a:diff(set_b)
     ---> bitset: {10, 12, 18}
 
-Testing
--------
+## Testing
 
 You need telescope >= 0.5 to run tests, install it via:
 
@@ -68,8 +66,7 @@ To run benchmarks, try:
 
     $ make benchmark
 
-Licence
--------
+## Licence
 
     Copyright (c) 2013 Black Square Media Ltd
 
